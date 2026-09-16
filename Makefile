@@ -1,4 +1,4 @@
-DATA_DIR = /Users/cuchi/home/equentin/data
+DATA_DIR = /home/equentin/data
 COMPOSE_FILE = ./srcs/docker-compose.yml
 COMPOSE_CMD = DATA_DIR=${DATA_DIR} docker compose -f ${COMPOSE_FILE}
 
