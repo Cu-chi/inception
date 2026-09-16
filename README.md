@@ -6,3 +6,4 @@ https://www.nicelydev.com/docker/docker-comprendre
 https://www.ibm.com/docs/en/ibm-mq/7.5.0?topic=certificates-distinguished-names  
 https://wiki.alpinelinux.org/wiki/MariaDB  
 https://mariadb.com/docs/server/server-management/variables-and-modes/server-system-variables  
+https://blog.stephane-robert.info/docs/conteneurs/moteurs-conteneurs/docker/secrets/  
