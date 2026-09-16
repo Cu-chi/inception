@@ -11,12 +11,6 @@ RUN openssl req -x509 -nodes -out /etc/nginx/ssl/equentin.crt \
 
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 
-RUN mkdir -p /var/www/html
-RUN adduser -u 82 -D -S -G www-data www-data 2>/dev/null || true
-
-RUN chmod 755 /var/www/html
-RUN chown -R www-data:www-data /var/www/html
-
 CMD ["nginx", "-g", "daemon off;"]
 
 EXPOSE 443
