@@ -1,4 +1,4 @@
-DATA_DIR = /home/equentin/data
+include srcs/.env
 COMPOSE_FILE = ./srcs/docker-compose.yml
 COMPOSE_CMD = DATA_DIR=${DATA_DIR} docker compose -f ${COMPOSE_FILE}
 
