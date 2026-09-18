@@ -1,7 +1,5 @@
 FROM alpine:3.23.5
 
-RUN apk update
-RUN apk upgrade
 RUN apk add --no-cache php84 php84-fpm php84-mysqli php84-phar php84-iconv php84-curl php84-mbstring mariadb-client
 
 RUN mkdir -p /var/www

@@ -1,8 +1,6 @@
 FROM alpine:3.23.5
 
-RUN apk update
-RUN apk upgrade
-RUN apk add nginx openssl
+RUN apk add --no-cache nginx openssl
 
 RUN mkdir -p /etc/nginx/ssl
 RUN openssl req -x509 -nodes -out /etc/nginx/ssl/equentin.crt \
