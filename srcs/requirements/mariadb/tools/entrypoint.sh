@@ -4,11 +4,11 @@ set -e
 mkdir -p /run/mysqld /var/lib/mysql
 chown -R mysql:mysql /run/mysqld /var/lib/mysql
 
-DB_PASSWORD=$(cat /run/secrets/SQL_PASSWORD)
-DB_ROOT_PASSWORD=$(cat /run/secrets/SQL_ROOT_PASSWORD)
-
 # init if database isn't created yet
 if [ ! -d "/var/lib/mysql/mysql" ]; then
+    DB_PASSWORD=$(cat /run/secrets/SQL_PASSWORD)
+    DB_ROOT_PASSWORD=$(cat /run/secrets/SQL_ROOT_PASSWORD)
+    
     mariadb-install-db --user=mysql --datadir=/var/lib/mysql --skip-test-db > /dev/null
 
     # temp start without networking
