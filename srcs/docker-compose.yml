@@ -30,7 +30,7 @@ services:
         env_file: .env
         ports:
             - "443:443"
-        restart: on-failure
+        restart: unless-stopped
     
     wordpress:
         image: wordpress:inception
@@ -49,7 +49,7 @@ services:
             dockerfile: Dockerfile
         depends_on:
             - mariadb
-        restart: on-failure
+        restart: unless-stopped
 
 
 # DATA_DIR is set in the .env
