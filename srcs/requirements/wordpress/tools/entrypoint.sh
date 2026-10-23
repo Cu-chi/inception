@@ -7,7 +7,7 @@ WP_PASSWORD=$(cat /run/secrets/WP_PASSWORD)
 
 tries=1
 echo "Waiting MariaDB"
-until mariadb -h mariadb -u "e${SQL_USER}" -p"${DB_PASSWORD}" -e "SELECT 1;" >/dev/null 2>&1; do
+until mariadb -h mariadb -u "${SQL_USER}" -p"${DB_PASSWORD}" -e "SELECT 1;" >/dev/null 2>&1; do
     echo "Connection (try number $tries)"
     tries=$((tries+1))
     if [ "$tries" -gt "10" ]; then
