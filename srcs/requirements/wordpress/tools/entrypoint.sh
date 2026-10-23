@@ -5,8 +5,15 @@ DB_PASSWORD=$(cat /run/secrets/SQL_PASSWORD)
 WP_ADMIN_PASSWORD=$(cat /run/secrets/WP_ADMIN_PASSWORD)
 WP_PASSWORD=$(cat /run/secrets/WP_PASSWORD)
 
+tries=1
 echo "Waiting MariaDB"
-until mariadb -h mariadb -u "${SQL_USER}" -p"${DB_PASSWORD}" -e "SELECT 1;" >/dev/null 2>&1; do
+until mariadb -h mariadb -u "e${SQL_USER}" -p"${DB_PASSWORD}" -e "SELECT 1;" >/dev/null 2>&1; do
+    echo "Connection (try number $tries)"
+    tries=$((tries+1))
+    if [ "$tries" -gt "10" ]; then
+        echo "Failed to connect after 10 tries, exiting"
+        exit 1
+    fi
     sleep 1
 done
 echo "MariaDB ready"
