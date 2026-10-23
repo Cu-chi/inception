@@ -1,4 +1,4 @@
-FROM alpine:3.23.5
+FROM alpine:3.23.7
 
 RUN apk add --no-cache php84 php84-fpm php84-mysqli php84-phar php84-iconv php84-curl php84-mbstring mariadb-client
 

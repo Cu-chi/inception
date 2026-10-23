@@ -1,4 +1,4 @@
-FROM alpine:3.23.5
+FROM alpine:3.23.7
 
 RUN apk add --no-cache nginx openssl
 
