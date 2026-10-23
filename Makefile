@@ -15,7 +15,7 @@ clean:
 	docker system prune -f
 
 fclean: clean
-	@rm -rf ${DATA_DIR}
+	@sudo rm -rf ${DATA_DIR}
 	docker system prune -af --volumes
 
 re: fclean up
