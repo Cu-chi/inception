@@ -42,4 +42,6 @@ if [ ! -f "wp-config.php" ]; then
         --allow-root
 fi
 
+chown -R www-data:www-data /var/www/wordpress
+
 exec php-fpm84 -F
