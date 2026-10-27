@@ -25,7 +25,11 @@ if [ ! -f "wp-config.php" ]; then
         --dbpass="${DB_PASSWORD}" \
         --dbhost="mariadb:3306" \
         --allow-root
+else
+    echo "wp-config exists"
+fi
 
+if ! wp core is-installed --allow-root 2>/dev/null; then
     wp core install \
         --url="https://${DOMAIN_NAME}" \
         --title="Inception" \
@@ -34,12 +38,18 @@ if [ ! -f "wp-config.php" ]; then
         --admin_email="${WP_ADMIN_EMAIL}" \
         --skip-email \
         --allow-root
+else
+    echo "wordpress already installed"
+fi
 
+if ! wp user get "${WP_USER}" --allow-root >/dev/null 2>&1; then
     wp user create \
         "${WP_USER}" "${WP_EMAIL}" \
         --role=author \
         --user_pass="${WP_PASSWORD}" \
         --allow-root
+else
+    echo "user ${WP_USER} already exists"
 fi
 
 chown -R www-data:www-data /var/www/wordpress
