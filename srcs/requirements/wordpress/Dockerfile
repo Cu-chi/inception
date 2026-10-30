@@ -7,7 +7,7 @@ RUN wget https://fr.wordpress.org/wordpress-7.1-fr_FR.tar.gz -P /var/www \
     && tar -xzf wordpress-7.1-fr_FR.tar.gz \
     && rm wordpress-7.1-fr_FR.tar.gz
 
-RUN adduser -u 82 -D -S -G www-data www-data 2>/dev/null
+RUN adduser -u 82 -D -S -G www-data www-data
 
 RUN wget https://github.com/wp-cli/wp-cli/releases/download/v2.12.0/wp-cli-2.12.0.phar \
     && chmod +x wp-cli-2.12.0.phar \
