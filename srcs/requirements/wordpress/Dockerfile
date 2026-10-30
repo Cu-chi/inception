@@ -2,7 +2,6 @@ FROM alpine:3.23.7
 
 RUN apk add --no-cache php84 php84-fpm php84-mysqli php84-phar php84-iconv php84-curl php84-mbstring mariadb-client
 
-RUN mkdir -p /var/www
 RUN wget https://fr.wordpress.org/wordpress-7.1-fr_FR.tar.gz -P /var/www \
     && cd /var/www \
     && tar -xzf wordpress-7.1-fr_FR.tar.gz \
